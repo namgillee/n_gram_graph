@@ -36,7 +36,7 @@ def prepare_fingerprints_delaney(dataset_name):
         fingerprints = AllChem.GetMorganFingerprintAsBitVect(mol, radius=2, nBits=1024)
         morgan_fps.append(fingerprints.ToBitString())
 
-    data_pd = data_pd.ix[valid_index]
+    data_pd = data_pd.f[valid_index]
     data_pd['Fingerprints'] = morgan_fps
     data_pd = data_pd[['Molecule', 'SMILES', 'Fingerprints', target_name]]
 

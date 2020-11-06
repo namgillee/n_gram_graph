@@ -37,7 +37,7 @@ def prepare(dataset_name, clean_mols=False):
         fingerprints = AllChem.GetMorganFingerprintAsBitVect(mol, radius=2, nBits=1024)
         morgan_fps.append(fingerprints.ToBitString())
 
-    data_pd = data_pd.ix[valid_index]
+    data_pd = data_pd.loc[valid_index]
     data_pd['Fingerprints'] = morgan_fps
     data_pd = data_pd[['SMILES', 'Fingerprints'] + qm9_tasks]
 
